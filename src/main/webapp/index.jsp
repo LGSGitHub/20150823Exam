@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -75,13 +78,39 @@
 						<a href="<%=request.getContextPath()%>/AddFilmServlet"">新建</a>
 					</button>
 				</div>
-				<div>
-					<div>
-						<%-- <%
-							String str = request.getAttribute("customerData").toString();
-						%> --%>
-						<p onclick="strToJson(str)"></p>
 
+				<div>
+					<div style="padding-top: 30px;">
+						<table style="">
+							<tr>
+								<td>first_name</td>
+								<td>last_name</td>
+								<td>address</td>
+								<td>email</td>
+								<td>customer_id</td>
+								<td>last_update</td>
+							</tr>
+							<%
+								List<String> list = new ArrayList<String>();
+								list = (ArrayList) request.getAttribute("list");
+								for (int i = 0; i < list.size(); i += 6) {
+							%>
+							<tr>
+								<td><%=list.get(i)%></td>
+								<td><%=list.get(i + 1)%></td>
+								<td><%=list.get(i + 2)%></td>
+								<td><%=list.get(i + 3)%></td>
+								<td><%=list.get(i + 4)%></td>
+								<td><%=list.get(i + 5)%></td>
+								<td><a
+									href="<%=request.getContextPath()%>/UpdateFilmServlet?film_id=<%=list.get(i)%>">编辑</a></td>
+								<td><a
+									href="<%=request.getContextPath()%>/DeleteFilmServlet?film_id=<%=list.get(i)%>">删除</a></td>
+							<tr />
+							<%
+								}
+							%>
+						</table>
 					</div>
 
 
@@ -111,9 +140,9 @@
 	<script src="jquery-2.1.4.min.js"></script>
 	<script src="bootstrap.min.js"></script>
 	<script>
-	function strToJson(str) {
-		var json = JSON.parse(str);
-		
+		function strToJson(str) {
+			var json = JSON.parse(str);
+
 		}
 	</script>
 </body>

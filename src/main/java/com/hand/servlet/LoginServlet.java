@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -69,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 				rs = cdi.getCustomer(conn);
 				StringBuilder sb = new StringBuilder();
 				String str;
+				List<String> list = new ArrayList<String>();
 				try {
 					while(rs.next())
 					{
@@ -78,12 +81,20 @@ public class LoginServlet extends HttpServlet {
 						sb.append(rs.getString("email"));
 						sb.append(rs.getString("customer_id"));
 						sb.append(rs.getString("last_update"));
+						
+						list.add(rs.getString("first_name"));
+						list.add(rs.getString("last_name"));
+						list.add(rs.getString("address_id"));
+						list.add(rs.getString("email"));
+						list.add(rs.getString("customer_id"));
+						list.add(rs.getString("last_update"));
 					}
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				str = sb.toString();
 				request.setAttribute("customerData", str);
+				request.setAttribute("list", list);
 				
 				if(returnUri != null)
 				{
