@@ -1,0 +1,17 @@
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\DeleteFilmServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\getFilmServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\DoUpdateServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\filter\PermissionFilter.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\LoginServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\dao\impl\CustomerDaoImpl.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\dao\impl\FilmDaoImpl.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\entity\Customer.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\dao\impl\LanguageDaoImpl.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\UpdateFilmServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\AddFilmServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\entity\Film.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\util\ConnectionFactory.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\dao\FilmDao.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\LogoutServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\servlet\DoAddFilmServlet.java
+C:\HandWork\Exam\20150823Exam\src\main\java\com\hand\entity\Language.java

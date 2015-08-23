@@ -1,0 +1,11 @@
+本项目使用的数据库是sakila，用户名是root，密码为空
+1、把项目从GitHub克隆到本地
+mvn clean
+mvn compile
+mvn tomcat:run
+2、打开浏览器，输入http://localhost:8080/20150823Exam/login.jsp
+3、输入客户名和密码。（用户名是Customer表中firt_name对应的值，密码是对应的last_name）
+4、跳转到index.jsp，右上角显示用户是否登录和退出登录按钮。
+5、首页（index.jsp）左边显示“Customer管理”和“Film设置”，点击“Customer管理”显示用户列表，
+	用ajax得到用户数据在这里没有实现，点击“新建”按钮跳转到添加新客户页面，添加功能这里没有实现。
+6、本项目使用filter限制非登录用户
