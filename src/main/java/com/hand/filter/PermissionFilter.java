@@ -47,14 +47,13 @@ public class PermissionFilter implements Filter {
 
 		if (servletPath != null
 				&& (servletPath.equals("/login.jsp") 
-						|| (servletPath.equals("/index.jsp"))
 						|| (servletPath.equals("/LoginServlet")))) {
 			System.out.println("第一个if");
 			chain.doFilter(request, response);
 		}else {
 			//如果用户处于登录状态则可以直接进行访问
 			if (flag != null && flag.equals("login_success")) {
-				System.out.println("第二个if");
+				System.out.println("第二个if" + flag);
 				chain.doFilter(request, response);
 			}
 			else if (flag != null && flag.equals("login_error")) {
