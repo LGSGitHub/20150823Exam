@@ -70,17 +70,18 @@ public class LoginServlet extends HttpServlet {
 				request.getSession().setAttribute("username", name);
 				rs = cdi.getCustomer(conn);
 				StringBuilder sb = new StringBuilder();
-				String str;
 				List<String> list = new ArrayList<String>();
 				try {
+					//往sb里添加json格式的数据
+					sb.append("[");
 					while(rs.next())
 					{
-						sb.append(rs.getString("first_name"));
-						sb.append(rs.getString("last_name"));
-						sb.append(rs.getString("address_id"));
-						sb.append(rs.getString("email"));
-						sb.append(rs.getString("customer_id"));
-						sb.append(rs.getString("last_update"));
+						sb.append("{\"first_name\" : \" "+rs.getString("first_name") + "\",");
+						sb.append("\"last_name\" : \"" +rs.getString("last_name") + "\",");
+						sb.append("\"address_id\":\""+rs.getString("address_id")+"\",");
+						sb.append("\"email\":\""+rs.getString("email")+"\",");
+						sb.append("\"customer_id\":\""+rs.getString("customer_id")+"\",");
+						sb.append("\"last_update\":\""+rs.getString("last_update")+"\"},");
 						
 						list.add(rs.getString("first_name"));
 						list.add(rs.getString("last_name"));
@@ -89,10 +90,16 @@ public class LoginServlet extends HttpServlet {
 						list.add(rs.getString("customer_id"));
 						list.add(rs.getString("last_update"));
 					}
+//					sb.setLength(sb.length() - 1);
+					//删除最后没用的逗号
+					sb.deleteCharAt(sb.length()-1);
+					sb.append("]");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				str = sb.toString();
+				//把stringbuilder转为String
+				String str = sb.toString();
+				//传到处理数据的页面
 				request.setAttribute("customerData", str);
 				request.setAttribute("list", list);
 				
